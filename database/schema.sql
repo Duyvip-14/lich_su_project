@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS TrieuDai (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ten_trieu_dai VARCHAR(255) NOT NULL,
     thoi_gian_ton_tai VARCHAR(100),
+    nam_bat_dau INT,
+    nam_ket_thuc INT,
     mo_ta TEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -26,6 +28,8 @@ CREATE TABLE IF NOT EXISTS SuKien (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ten_su_kien VARCHAR(255) NOT NULL,
     thoi_gian VARCHAR(100),
+    nam_bat_dau INT,
+    nam_ket_thuc INT,
     dia_diem VARCHAR(255),
     mo_ta TEXT,
     hinh_anh VARCHAR(255),
