@@ -1,22 +1,14 @@
 CREATE DATABASE IF NOT EXISTS lich_su_viet_nam CHARACTER SET utf8mb4;
 USE lich_su_viet_nam;
 
--- Xóa bảng cũ (con trước, cha sau) để chạy lại được nhiều lần
-DROP TABLE IF EXISTS NhanVat_SuKien;
-DROP TABLE IF EXISTS NhanVat;
-DROP TABLE IF EXISTS SuKien;
-DROP TABLE IF EXISTS TrieuDai;
-DROP TABLE IF EXISTS figures;
-DROP TABLE IF EXISTS events;
-
-CREATE TABLE TrieuDai (
+CREATE TABLE IF NOT EXISTS TrieuDai (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ten_trieu_dai VARCHAR(255) NOT NULL,
     thoi_gian_ton_tai VARCHAR(100),
     mo_ta TEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE NhanVat (
+CREATE TABLE IF NOT EXISTS NhanVat (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ho_ten VARCHAR(255) NOT NULL,
     ten_khac VARCHAR(255),
@@ -30,7 +22,7 @@ CREATE TABLE NhanVat (
         ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE SuKien (
+CREATE TABLE IF NOT EXISTS SuKien (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ten_su_kien VARCHAR(255) NOT NULL,
     thoi_gian VARCHAR(100),
@@ -44,7 +36,7 @@ CREATE TABLE SuKien (
         ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE NhanVat_SuKien (
+CREATE TABLE IF NOT EXISTS NhanVat_SuKien (
     nhan_vat_id INT,
     su_kien_id INT,
     vai_tro VARCHAR(255),
